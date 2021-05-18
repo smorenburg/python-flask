@@ -5,8 +5,9 @@ clean:
 		rm -rf .venv
 
 venv: clean
-		virtualenv -p python3 .venv
-		$(V); pip install -r ./src/requirements.txt
+		virtualenv -p python3 .venv; \
+		$(V); \
+		pip install -r ./src/requirements.txt
 
 run:
 		$(V); \
