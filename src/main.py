@@ -11,7 +11,7 @@ def index():
 
 
 @app.route('/personal', methods=['POST'])
-def hello():
+def personal():
     name = request.get_json()['name']
 
     return jsonify({'message': f'Hello {name}!'}), 200
