@@ -1,14 +1,20 @@
 import os
 
-from flask import Flask
+from flask import (Flask, request, jsonify)
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    name = os.environ.get("NAME", "World")
-    return "Hello {}!".format(name)
+def index():
+    return jsonify({'message': 'Hello World!'}), 200
+
+
+@app.route('/personal', methods=['POST'])
+def hello():
+    name = request.get_json()['name']
+
+    return jsonify({'message': f'Hello {name}!'}), 200
 
 
 if __name__ == '__main__':
